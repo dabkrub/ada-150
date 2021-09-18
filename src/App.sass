@@ -1,0 +1,686 @@
+//config
+$blue1 : #385DB8
+$blue2 : #2045A3
+$blue3 : #0066CC
+$darkblue : #153E5C
+$pink1 : #DA859B
+$pink2 : #BC657D
+$white : #F8F8F5
+$jumbo : 6.25em //100px
+$header : 3.75em //60px
+$verybig : 3em //48px
+$big : 2.25em //36px
+$morethanmediumbutnotbig : 2.125em //34px
+$medium : 1.625em //26px
+$small : 1.5em //24px
+$verysmall : 1.3125em //21px
+$smallest : 1em //16px
+$mobilesmallest : 0.875em //16px
+
+
+@font-face 
+    font-family: gotham
+    src: url("./fonts/Gotham-Medium.otf")
+
+@font-face 
+    font-family: gothamBold
+    src: url("./fonts/Gotham-Ultra.otf")
+
+@font-face 
+    font-family: gothamLight
+    src: url("./fonts/Gotham-Light.otf")
+
+@font-face
+    font-family: homepageBold
+    src: url("./fonts/HomepageBaukasten-Bold.ttf")
+
+@font-face
+    font-family: homepageBook
+    src: url("./fonts/HomepageBaukasten-Book.ttf")
+
+html, body 
+    font-family: gotham
+    font-weight: normal
+    background-color: $white
+    overflow-x: hidden
+
+//navComponent    
+nav
+    width: 100%
+    background: rgb(0,127,230)
+    background: linear-gradient(99deg, $blue1 0%, $blue2 100%)
+    color: $white
+    position: fixed
+    z-index: 1000
+    
+    @media screen and (max-width: 1279px)
+        display: none
+    
+    .nav-flex
+        padding: 0 20px 0 20px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        height: 65px
+
+    li
+        display: inline
+        padding-left: 50px
+        cursor: pointer
+        position: relative
+        &:hover
+            color: #FFB669
+
+    img
+        width: 225px
+        height: 51px
+        cursor: pointer
+
+    .graph-button
+        background: $blue1;
+        background: linear-gradient(180deg, $blue1 0%, $blue2 100%);
+        border-radius: 24px
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        padding: 10px 20px
+        transition: 2s ease-in
+        &:hover
+            background: linear-gradient(180deg,#77B8ED  0%, $blue2 100%)
+            
+            
+
+    .pcs-button
+        color: $white 
+        background: $pink1;
+        background: linear-gradient(180deg, $pink1 0%, $pink2 100%);
+        border-radius: 24px
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        padding: 10px 20px
+        &:hover
+            background: linear-gradient(180deg,#F2C558  0%, $pink2 100%)
+
+    .text-menu 
+        &::after
+            position: absolute;
+            top: 22px;
+            width: 0%;
+            left: 70%;
+            height: 3px;
+            content: '';
+            background-color: #ffb669;
+            display: block;
+            transition: left 0.15s ease-in, width 0.15s ease-in;
+            border-radius: 2px;
+            
+        &:hover::after
+            width: 65%;
+            left: 37%;
+
+//mobile-nav
+.mobile-nav
+    display: none
+    @media screen and(max-width: 1279px)
+        width: 100%
+        display: block
+        position: fixed
+        background: linear-gradient(99deg, $blue1 0%, $blue2 100%)
+        z-index: 1000
+    #hamburger 
+        margin-left: 80px
+
+    .mobile-nav-flex 
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 0 20px
+        height: 80px
+
+    .mobile-nav-open 
+        position: fixed
+        height: 100vh
+        width: 300px
+        right: 0
+        top: 0
+        background-color: #FF7676
+        transition: transform 0.4s ease-in-out
+
+        img
+            position: absolute
+            top: 80px
+            right: 40px
+
+        ul
+            position: relative
+            font-family: homepageBold
+            font-size: $small
+            color: #2045A3
+            list-style: none
+            top: 16%
+            margin-left: -18px
+
+        li
+            padding: 20px
+            width: 77%
+            border-bottom: solid 1px #E7ECEE
+            cursor: pointer
+
+    .mobile-nav-close
+        transform: translateX(200%)
+            
+
+
+//header
+.header 
+    background-image: url("./images/logobg.jpg")
+    background-size: cover
+    background-position: 0% 42%
+    background-repeat: no-repeat
+    object-fit: wrap
+    background-color: $blue1
+    height: 1050px
+    max-height: 1014px
+    @media screen and (max-width: 1450px)
+        height: 760px
+
+    @media screen and (max-width: 920px)
+        height: auto
+        padding: 380px 0 70px 0
+        background-position: right
+        background-size: cover
+
+    @media screen and (max-width: 600px)
+        padding-top: 320px
+
+    .header-flex
+        padding-top: 14vh
+        padding-left: 11%
+        justify-content: center
+        gap: 150px
+        @media screen and (max-width: 1450px)
+            padding-top: 8vh
+            gap: 80px
+
+        @media screen and (max-width: 1200px)
+            gap: 40px
+
+        @media screen and (max-width: 920px)
+            display: block
+            width: 80%
+            margin: auto
+            text-align: center
+        
+    h1
+        font-size: 10.75em
+        font-family: homepageBold
+        color: $white
+        margin-bottom: 50px
+        @media screen and (max-width: 920px)
+            display: none
+            
+            
+        img
+            width: 72px
+            padding: 0 7px
+            transform: translateY(30px)
+            @media screen and (max-width: 920px)
+                width: 40px
+                transform: translateY(20px)
+
+    
+    p
+        font-size: 1.125em
+        font-family: homepageBook
+        color: $white
+        width: 662px
+        @media screen and (max-width: 1450px)
+            font-size: $smallest
+        @media screen and (max-width: 920px)
+            width: 85%
+            margin: auto
+            text-align: left
+        @media screen and (max-width: 600px)
+            width: 100%
+            font-size: $mobilesmallest
+
+
+//features
+.features 
+    padding-top: 13vh
+    padding-bottom: 6vh
+    text-align: center
+    @media screen and (max-width: 600px)
+        padding-top: 9vh
+
+    h2
+        font-size: $big
+        color: #3F6BD3
+        font-family: homepageBook
+        @media screen and (max-width: 600px)
+            font-size: $small
+    h1
+        font-size: $header
+        font-family: gothamBold
+        color: #3F6BD3
+        margin-top: -25px
+        @media screen and (max-width: 600px)
+            font-size: $big
+            margin-top: -18px
+
+    .features-line 
+        display: block
+        height: 3px 
+        width: 330px
+        background-color: $blue2
+        position: absolute
+        left: 50%
+        transform: translateX(-50%)
+        margin-top: 0px
+        @media screen and (max-width: 600px)
+            width: 80%
+
+    .features-flex 
+        padding-top: 320px
+        display: flex
+        justify-content: center
+        gap: 56px
+        @media screen and (max-width: 1150px)
+            flex-direction: column
+            align-items: center
+            padding-top: 100px
+            margin-left: 150px
+        @media screen and (max-width: 600px)
+            padding-top: 40px
+
+    .features-box 
+        width: 240px
+        padding: 0px 42px 0 42px
+        height: 488px
+        border-radius: 51px
+        box-shadow: 3px 3px 20px rgba(0,0,0,0.16)
+        @media screen and (max-width: 1150px)
+            box-shadow: none
+            background: linear-gradient(90deg,$white 0%,#E7ECEE 100%)
+            height: auto
+            width: 40%
+            padding: 0px 42px 0 80px
+            text-align: left
+        @media screen and (max-width: 600px)
+            width: 80%
+            padding-left: 30px
+            padding-top: 35px
+            border-radius: 21px
+
+        h1
+            font-size: $big
+            color: $blue3
+            font-family: homepageBold
+            @media screen and (max-width: 600px)
+                font-size: $small
+
+        h2
+            font-family: homepageBook
+            font-size: $medium
+            color: $blue3
+            @media screen and (max-width: 600px)
+                font-size: 18px
+        p
+            font-size: $medium
+            color: $blue2
+            font-family: gothamLight
+            @media screen and (max-width: 600px)
+                font-size: 18px
+
+        img
+            display: absolute
+            transform: translateY(-230px)
+            margin-bottom: -190px
+            @media screen and (max-width: 1150px)
+                display: none
+            
+            
+        .mobile
+            display: none
+            display: absolute
+            transform: translateY(-60px)
+            margin-top: 60px
+            margin-left: -230px
+            width: 200px
+            @media screen and (max-width: 1150px)
+                display: block
+            @media screen and (max-width: 600px)
+                width: 126px
+                margin-left: -140px
+                transform: translateY(-100px)
+
+
+
+//tokenomics
+.tokenomics
+    background: url('./images/tokenomicsbg.png')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: 40%
+    height: 1100px
+    padding-top: 9vh
+    padding-bottom: 0vh
+    text-align: center
+    @media screen and (max-width: 1150px)
+        background-size: cover
+        background-position: 50%
+        height: auto
+        padding-bottom: 12vh
+        padding-top: 6vh
+    
+    h2
+        font-size: $big
+        color: $white
+        font-family: homepageBook
+        font-family: gothamLight
+        @media screen and (max-width: 600px)
+            font-size: $small
+
+    h1
+        font-size: $header
+        font-family: gothamBold
+        color: $white
+        margin-top: -25px
+        @media screen and (max-width: 600px)
+            font-size: $big
+            margin-top: -18px
+
+
+    .tokenomics-line 
+        display: block
+        height: 3px 
+        width: 330px
+        background-color: $pink1
+        position: absolute
+        left: 50%
+        transform: translateX(-50%)
+        margin-top: 0px
+        @media screen and (max-width: 600px)
+            width: 80%
+
+    .tokenomics-flex
+        display: flex
+        justify-content: center
+        padding-top: 2vh
+        margin-left: -180px
+        @media screen and (max-width: 1150px)
+            margin-left: 0
+            flex-direction: column
+
+        h2
+            font-size: $big
+            font-weight: normal
+            line-height: 36px
+            @media screen and (max-width: 600px)
+                font-size: $small
+                line-height: 15px
+
+        span
+            font-size: 48px
+            font-family: gothamBold
+            @media screen and (max-width: 600px)
+                font-size: 32px
+
+        #chart
+            transform: translateX(220px)
+            @media screen and (max-width:1450px) 
+                width: 800px
+
+            @media screen and (max-width: 1150px)
+                width: 600px
+                margin-left: -300px
+
+            @media screen and (max-width: 750px)
+                display: none
+        
+        #chart-mobile
+            display: none
+            @media screen and (max-width: 750px)
+                display: block
+                width: 300px
+                margin: auto
+            @media screen and (max-width: 500px)
+                width: 250px
+
+        #chart2
+            transform: translateY(30px)
+            @media screen and (max-width:1450px) 
+                width: 475px
+            @media screen and (max-width: 1150px)
+                width: 440px
+            @media screen and (max-width: 1150px)
+                width: 400px
+                margin: auto
+            @media screen and (max-width: 500px)
+                width: 280px
+
+//roadmap
+.roadmap
+    padding-top: 13vh
+    padding-bottom: 16vh
+    text-align: center
+
+    @media screen and (max-width: 1279px)
+        padding-bottom: 5vh
+
+    @media screen and (max-width: 600px)
+        padding-top: 9vh
+        padding-bottom: 0vh
+    
+    h2
+        font-size: $big
+        color: #3F6BD3
+        font-family: homepageBook
+        font-family: gothamLight
+        @media screen and (max-width: 600px)
+            font-size: $small
+
+    h1
+        font-size: $header
+        font-family: gothamBold
+        color: #3F6BD3
+        margin-top: -25px
+        @media screen and (max-width: 600px)
+            font-size: $big
+            margin-top: -18px
+
+    .roadmap-line 
+        display: block
+        height: 3px 
+        width: 330px
+        background-color: $blue2
+        position: absolute
+        left: 50%
+        transform: translateX(-50%)
+        margin-top: 0px
+        @media screen and (max-width: 600px)
+            width: 80%
+
+    .roadmap-flex 
+        padding-top: 150px
+        display: flex
+        justify-content: center
+        gap: 10px
+        &::after
+            content: ""
+            display: block
+            position: absolute
+            width: 850px
+            height: 20px
+            background-color: #007FE6
+            transform: translateY(-80px)
+        @media screen and (max-width: 1279px) 
+            flex-direction: column
+            align-items: center
+            gap: 0px
+            padding-top: 70px
+            &::after
+                display: none
+
+    .roadmap-box 
+        text-align: left
+        width: 350px
+        padding: 0px 1px 0 62px
+        height: 600px
+        background: linear-gradient(180deg,#ffffff 0%,$white 100%)
+        border-radius: 51px
+        &::before
+            content: ""
+            display: block
+            height: 75px
+            width: 75px
+            background-color: #007FE6
+            border-radius: 100%
+            margin-left: 110px
+            transform: translateY(-110px)
+
+        @media screen and (max-width: 1279px) 
+            height: 640px
+            padding-bottom: 0px
+            padding-left: 50px
+            &::before
+                transform: translate(-230px,35px)
+
+        @media screen and (max-width: 600px)
+            height: 430px
+            width: 280px
+            transform: translateX(15px)
+            &::before
+                height: 48px
+                width: 48px
+                transform: translate(-190px,27px)
+
+        @media screen and (max-width: 400px)
+            width: 240px
+
+        h1
+            font-size: $verybig
+            font-family: gothamBold
+            color: #007FE6
+            margin-bottom: 30px
+            @media screen and (max-width: 1279px) 
+                &::before
+                    content: ""
+                    display: block
+                    height: 630px
+                    width: 13px
+                    background-color: #007FE6
+                    position: absolute
+                    transform: translate(-90px,10px)
+
+            @media screen and (max-width: 600px)
+                font-size: $big
+                margin-bottom: 15px
+                &::before
+                    height: 450px
+                    width: 10px
+                    transform: translate(-60px,10px)
+                
+        .roadmap-no-line
+            &::before
+                display: none
+
+
+        span
+            color: $pink1
+            font-family: gotham
+
+
+
+    .roadmap-detail
+        margin-left: 30px
+        @media screen and (max-width: 1279px) 
+            margin-left: 15px
+            
+        h2
+            color: #0066CC
+            font-size: $morethanmediumbutnotbig
+            line-height: 38px
+            height: 114px
+            @media screen and (max-width: 600px)
+                font-size: $verysmall
+                height: 77px
+                line-height: 26px
+
+        h3
+            color: #007FE6
+            font-size: $small
+            font-family: homepageBold
+            line-height: 15px
+            @media screen and (max-width: 600px)
+                font-size: 15px
+                line-height: 10px
+        ul
+            margin-top: 32px
+            list-style: none
+            font-family: homepageBook
+            font-size: $verysmall
+            color: #0066CC
+            padding: 0
+            @media screen and (max-width: 600px)
+                font-size: $mobilesmallest
+
+        li
+            margin-bottom: 24px
+            @media screen and (max-width: 600px)
+                margin-bottom: 10px
+
+
+        &::before
+                content: ""
+                display: block
+                height: 195px
+                width: 10px 
+                background-color: $pink1
+                position: absolute;
+                margin-left: -30px
+                margin-top: 6px
+
+        @media screen and (max-width:600px) 
+            &::before
+                height: 138px
+                margin-top: 2px
+
+//contact
+.contact
+    background-color: #FF7676
+    padding: 40px
+    @media screen and (max-width: 1079px)
+        padding: 30px 80px
+    @media screen and (max-width: 600px)
+        padding: 30px 30px
+    .contact-flex 
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 100px
+        @media screen and (max-width: 1079px)
+            flex-direction: column
+            align-items: flex-start
+            gap: 18px
+            height: auto
+        h1
+            font-family: gothamBold
+            font-size: $verybig
+            color: $white
+            line-height: 20px
+            @media screen and (max-width: 600px)
+                font-size: $medium
+                line-height: 10px
+        a
+            font-size: $medium
+            color: $white
+            text-decoration: none
+            cursor: pointer
+            &:hover
+                color: $blue2
+            @media screen and (max-width: 600px)
+                font-size: $smallest
+                line-height: 0px
+
+        img
+            transform: translateY(7px)
+            margin-right: 15px
+            width: 33px
